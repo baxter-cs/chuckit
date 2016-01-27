@@ -1,0 +1,9 @@
+ThrowGame/.idea
+*.iml
+ThrowGame/.gradle
+ThrowGame/local.properties
+ThrowGame/.idea/workspace.xml
+ThrowGame/.idea/libraries
+ThrowGame/.DS_Store
+ThrowGame/build
+ThrowGame/captures
