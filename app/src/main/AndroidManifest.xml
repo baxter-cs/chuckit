@@ -18,6 +18,8 @@
         <activity android:name=".CountdownActivity" />
         <activity android:name=".SensorActivity" />
         <activity android:name=".ScoreboardActivity" />
+        <activity android:name=".Menu"
+            android:theme="@style/AppTheme.Popup"/>
     </application>
 
 </manifest>

@@ -35,6 +35,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    /*public void openMenu(View view) {
+        Intent intent = new Intent(this,Menu.class);
+        startActivity(intent);
+    }
+*/
     @Override
     public void onBackPressed() {
     }

@@ -7,6 +7,7 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimary"
     tools:context="academy.baxter.throwgame.ScoreboardActivity">
 
     <TextView
@@ -14,6 +15,7 @@
         android:layout_height="wrap_content"
         android:text="Score:"
         android:textSize="50dp"
+        android:textColor="@color/Textcolor"
         android:id="@+id/newScoreLabelTextView"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -23,6 +25,7 @@
         android:layout_height="wrap_content"
         android:text="-----"
         android:textSize="50dp"
+        android:textColor="@color/Textcolor"
         android:gravity="center"
         android:id="@+id/newScoreTextView"
         android:layout_below="@+id/newScoreLabelTextView"
@@ -44,6 +47,7 @@
         android:text="High Score:"
         android:textSize="38dp"
         android:gravity="center"
+        android:textColor="@color/Textcolor"
         android:id="@+id/oldScoreLabelTextView"
         android:layout_below="@+id/newScoreTextView"
         android:layout_centerHorizontal="true" />
@@ -53,6 +57,7 @@
         android:layout_height="wrap_content"
         android:text="-----"
         android:textSize="50dp"
+        android:textColor="@color/Textcolor"
         android:gravity="center"
         android:id="@+id/oldScoreTextView"
         android:layout_below="@+id/oldScoreLabelTextView"
