@@ -22,9 +22,9 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.sensor_activity);
-
+        if (getSharedPreferences("Sounds", Context.MODE_PRIVATE).getBoolean("beeps",true)){
         MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.hitmarker);
-        mp.start();
+        mp.start();}
 
         senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);

@@ -19,7 +19,8 @@
         android:textColor="@color/Textcolor"
         android:id="@+id/countdownTextView"
         android:layout_centerVertical="true"
+        android:fontFamily="sans-serif-medium"
         android:layout_centerHorizontal="true"
-        android:textSize="200dp" />
+        android:textSize="150sp" />
 
 </RelativeLayout>

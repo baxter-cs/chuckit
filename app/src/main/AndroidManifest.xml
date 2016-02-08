@@ -19,7 +19,7 @@
         <activity android:name=".SensorActivity" />
         <activity android:name=".ScoreboardActivity" />
         <activity android:name=".Menu"
-            android:theme="@style/AppTheme.Popup"/>
+            android:theme="@style/AppTheme.Custom"></activity>
     </application>
 
 </manifest>
