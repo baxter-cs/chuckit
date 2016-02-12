@@ -8,6 +8,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -43,7 +44,7 @@ public class  MainActivity extends AppCompatActivity implements View.OnClickList
                 .addConnectionCallbacks(this)
                 .addOnConnectionFailedListener(this)
                 .addApi(Games.API).addScope(Games.SCOPE_GAMES)
-                        // add other APIs and scopes here as needed
+                        // add other APIs and scopes here as
                 .build();
         new SimpleEula(this).show();
         if (getSharedPreferences("AdDisplay", Context.MODE_PRIVATE).getBoolean("ads", true)){
@@ -78,6 +79,7 @@ public class  MainActivity extends AppCompatActivity implements View.OnClickList
             // show sign-in button, hide the sign-out button
             findViewById(R.id.sign_in_button).setVisibility(View.VISIBLE);
             findViewById(R.id.sign_out_button).setVisibility(View.GONE);
+            findViewById(R.id.leaderboards).setVisibility(View.GONE);
         }
     }
 
@@ -86,6 +88,10 @@ public class  MainActivity extends AppCompatActivity implements View.OnClickList
     private boolean mResolvingConnectionFailure = false;
     private boolean mAutoStartSignInflow = true;
     private boolean mSignInClicked = false;
+    private boolean isSignedIn() {
+        return (mGoogleApiClient != null && mGoogleApiClient.isConnected());
+    }
+
 
     @Override
     public void onConnectionFailed(ConnectionResult connectionResult) {
@@ -131,6 +137,7 @@ public class  MainActivity extends AppCompatActivity implements View.OnClickList
                         requestCode, resultCode, R.string.signin_failure);
             }
         }
+
     }
 
     @Override
@@ -138,6 +145,8 @@ public class  MainActivity extends AppCompatActivity implements View.OnClickList
         // The player is signed in. Hide the sign-in button and allow the
         findViewById(R.id.sign_in_button).setVisibility(View.GONE);
         findViewById(R.id.sign_out_button).setVisibility(View.VISIBLE);
+        findViewById(R.id.leaderboards).setVisibility(View.VISIBLE);
+        Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID),getSharedPreferences("myPrefsKey",Context.MODE_PRIVATE).getInt("HighScore", 0));
         // player to proceed.
     }
     @Override
@@ -157,7 +166,17 @@ public class  MainActivity extends AppCompatActivity implements View.OnClickList
         Intent intent = new Intent(this, CountdownActivity.class);
         startActivity(intent);
     }
+    private static final int RC_UNUSED = 5001;
 
+    public void LeaderboardStart(View view) {
+
+        if (isSignedIn()) {
+            startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(mGoogleApiClient),
+                    RC_UNUSED);
+        } else {
+            BaseGameUtils.makeSimpleDialog(this, getString(R.string.leaderboards_not_available)).show();
+        }
+    }
 
 
     @Override

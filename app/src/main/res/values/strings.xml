@@ -6,8 +6,9 @@
     <string name="app_id">1037738269911</string>
     <string name="signin_failure">Signin Fail</string>
     <string name="signin_other_error">other error</string>
+    <string name="leaderboards_not_available">Leaderboards are not avalible at this time.</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="updates">Upates in this version 1.6: Eula, Updates to layout of the app, added google play services connection</string>
+    <string name="updates">Upates in this version 1.8: Eula, Updates to layout of the app, added leaderboards</string>
     <string name="eula">By downloading any application from Baxter-Academy or Google™ (here after referered to as “The Company”), installing or using this application or any portion thereof (“Application”), you agree to the following terms and conditions (the “Terms and Conditions”).
 
 1. USE OF APPLICATION

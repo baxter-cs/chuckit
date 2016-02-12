@@ -13,8 +13,10 @@ import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Game;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.leaderboard.Leaderboards;
+import com.google.example.games.basegameutils.BaseGameUtils;
 
 
 public class ScoreboardActivity extends AppCompatActivity {
@@ -46,6 +48,7 @@ public class ScoreboardActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = prefs.edit();
             editor.putInt("HighScore", new_score);
             editor.commit();
+
             Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), old_score);
 
 
@@ -58,7 +61,18 @@ public class ScoreboardActivity extends AppCompatActivity {
 
     }
 
+    private static final int RC_UNUSED = 5001;
+    private boolean isSignedIn() {
+        return (mGoogleApiClient != null && mGoogleApiClient.isConnected());
+    }
+    public void LeaderboardStart (View view){
+        if (isSignedIn()) {
+            startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(mGoogleApiClient), RC_UNUSED);
+        } else {
+            BaseGameUtils.makeSimpleDialog(this, getString(R.string.leaderboards_not_available)).show();
+        }
 
+    }
 
     public void switchToCountdown(View view){
         Intent intent = new Intent(this, CountdownActivity.class);

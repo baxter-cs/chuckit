@@ -51,7 +51,8 @@
         android:id="@+id/sign_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView"
+        android:visibility="visible"
+        android:layout_above="@+id/button"
         android:layout_centerHorizontal="true" />
 
     <!-- sign-out button -->
@@ -61,18 +62,29 @@
         android:layout_height="wrap_content"
         android:text="Sign Out"
         android:visibility="gone"
-        android:layout_alignParentBottom="true"
-        android:layout_toLeftOf="@+id/button"
-        android:layout_toStartOf="@+id/button" />
+        android:layout_above="@+id/adView"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/leaderboards1"
+        android:id="@+id/leaderboards"
+        android:layout_alignParentTop="true"
+        android:stateListAnimator="@null"
+        android:visibility="gone"
+        android:onClick="LeaderboardStart"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
+        android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true">
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ad_unit_id">
     </com.google.android.gms.ads.AdView>
 
     </RelativeLayout>
