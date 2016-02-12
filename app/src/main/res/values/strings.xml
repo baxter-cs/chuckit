@@ -1,8 +1,13 @@
 <resources>
     <string name="app_name">ChuckIT</string>
-    <string name="title_activity_pop">Pop</string>
+
     <string name="Start">Start!</string>
+    <string name="LEADERBOARD_ID">CgkI17mV8JkeEAIQAA</string>
+    <string name="app_id">1037738269911</string>
+    <string name="signin_failure">Signin Fail</string>
+    <string name="signin_other_error">other error</string>
     <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="updates">Upates in this version 1.6: Eula, Updates to layout of the app, added google play services connection</string>
     <string name="eula">By downloading any application from Baxter-Academy or Google™ (here after referered to as “The Company”), installing or using this application or any portion thereof (“Application”), you agree to the following terms and conditions (the “Terms and Conditions”).
 
 1. USE OF APPLICATION
@@ -37,5 +42,4 @@ d. THE APPLICATION IS NOT INTENDED FOR USE IN THE OPERATION OF NUCLEAR FACILITIE
 
 9. LIMITATION OF LIABILITY
 YOU EXPRESSLY UNDERSTAND AND AGREE THAT THE COMPANY, ITS SUBSIDIARIES AND AFFILIATES, AND ITS LICENSORS ARE NOT LIABLE TO YOU UNDER ANY THEORY OF LIABILITY FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL CONSEQUENTIAL OR EXEMPLARY DAMAGES THAT MAY BE INCURRED BY YOU THROUGH YOUR USE OF THE APPLICATION, INCLUDING ANY LOSS OF DATA OR DAMAGE TO YOUR MOBILE DEVICE, WHETHER OR NOT THE COMPANY OR ITS REPRESENTATIVES HAVE BEEN ADVISED OF OR SHOULD HAVE BEEN AWARE OF THE POSSIBILITY OF ANY SUCH LOSSES ARISING.</string>
-    <string name="updates">Upates in this version 1.4: Eula, Updates to layout of the app, added new settings menu with options to turn on and of ads and or sounds.</string>
 </resources>

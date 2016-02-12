@@ -22,6 +22,11 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.ToggleButton;
 
+import com.google.android.gms.auth.api.Auth;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.common.api.GoogleApiClient;
 
 
 public class Menu extends AppCompatActivity {
@@ -40,12 +45,21 @@ public class Menu extends AppCompatActivity {
         creditAlert.show();
 
 
+
+
+
     }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.menupopup);
+
+
+
+
         Switch switch1 = (Switch)findViewById(R.id.switch1);
         Switch switch2 = (Switch)findViewById(R.id.switch2);
 
@@ -108,5 +122,7 @@ public class Menu extends AppCompatActivity {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
+
+
 
 }

@@ -12,11 +12,15 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.games.leaderboard.Leaderboards;
+
 
 public class ScoreboardActivity extends AppCompatActivity {
 
 
-
+    GoogleApiClient mGoogleApiClient;
 
 
     @Override
@@ -42,13 +46,15 @@ public class ScoreboardActivity extends AppCompatActivity {
             SharedPreferences.Editor editor = prefs.edit();
             editor.putInt("HighScore", new_score);
             editor.commit();
+            Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), old_score);
+
+
         }
         // Updating UI Values
         TextView newScoreTextView = (TextView) findViewById(R.id.newScoreTextView);
         newScoreTextView.setText(Integer.toString(new_score));
         TextView oldScoreTextView = (TextView) findViewById(R.id.oldScoreTextView);
         oldScoreTextView.setText(Integer.toString(old_score));
-
 
     }
 

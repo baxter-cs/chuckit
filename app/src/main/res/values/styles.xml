@@ -12,7 +12,19 @@
         <item name="android:windowCloseOnTouchOutside">true</item>
     </style>
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
-
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+    -<style parent="Theme.AppCompat.Light.DarkActionBar" name="AppTheme2">
+    <!-- Customize your theme here. -->
+</style>
+    <!-- Activity with no Title -->
+    -<style parent="AppTheme" name="ThemeOverlay.MyNoTitleActivity">
+    <item name="windowActionBar">false</item>
+    <item name="windowNoTitle">true</item>
+</style>
+    <!-- Dark Buttons -->
+    -<style parent="ThemeOverlay.AppCompat.Dark" name="ThemeOverlay.MyDarkButton">
+    <item name="colorButtonNormal">@color/blue_grey_500</item>
+    <item name="android:textColor">@android:color/white</item>
+</style>
 
 </resources>
