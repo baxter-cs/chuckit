@@ -5,7 +5,7 @@
     <application
 
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/ic_launcher_high_res"
         android:label="ChuckIT"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -23,7 +23,6 @@
         <activity android:name=".CountdownActivity" />
         <activity android:name=".SensorActivity" />
         <activity android:name=".ScoreboardActivity" />
-
         <activity android:name=".Menu"
             android:theme="@style/AppTheme.Custom"></activity>
     </application>

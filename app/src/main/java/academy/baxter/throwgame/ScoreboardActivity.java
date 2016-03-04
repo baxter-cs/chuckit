@@ -31,12 +31,14 @@ public class ScoreboardActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.scoreboard_activity);
 
-        SharedPreferences preferences = getSharedPreferences("AdDisplay", Context.MODE_PRIVATE);
-        if (preferences.getBoolean("ads", true)){
+
+        if (getSharedPreferences("AdDisplay", Context.MODE_PRIVATE).getBoolean("ads", true)){
             AdView mAdView = (AdView) findViewById(R.id.adView);
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
         }
+
+
 
         // Getting Scores
         Intent intent = getIntent();
@@ -49,7 +51,7 @@ public class ScoreboardActivity extends AppCompatActivity {
             editor.putInt("HighScore", new_score);
             editor.commit();
 
-            Games.Leaderboards.submitScore(mGoogleApiClient, getString(R.string.LEADERBOARD_ID), old_score);
+
 
 
         }
@@ -61,18 +63,8 @@ public class ScoreboardActivity extends AppCompatActivity {
 
     }
 
-    private static final int RC_UNUSED = 5001;
-    private boolean isSignedIn() {
-        return (mGoogleApiClient != null && mGoogleApiClient.isConnected());
-    }
-    public void LeaderboardStart (View view){
-        if (isSignedIn()) {
-            startActivityForResult(Games.Leaderboards.getAllLeaderboardsIntent(mGoogleApiClient), RC_UNUSED);
-        } else {
-            BaseGameUtils.makeSimpleDialog(this, getString(R.string.leaderboards_not_available)).show();
-        }
 
-    }
+
 
     public void switchToCountdown(View view){
         Intent intent = new Intent(this, CountdownActivity.class);

@@ -37,8 +37,10 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="ChuckIt Again"
+        android:text="Chuckit Again"
         android:textSize="30dp"
+        android:textAllCaps="false"
+        android:textColor="@color/Textcolor"
         android:fontFamily="sans-serif-medium"
         android:id="@+id/tryAgainButton"
         android:onClick="switchToCountdown"
@@ -73,7 +75,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Home"
+        android:textAllCaps="false"
         android:textSize="30dp"
+        android:textColor="@color/Textcolor"
         android:fontFamily="sans-serif-medium"
         android:onClick="switchToMaineActivity"
         android:id="@+id/button3"
@@ -81,13 +85,12 @@
         android:layout_centerHorizontal="true" />
 
 
-
     <com.google.android.gms.ads.AdView
         android:id="@+id/adView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        ads:adSize="BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id"
+        ads:adSize="SMART_BANNER"
+        ads:adUnitId="@string/Scoreboard_Ad"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true">
     </com.google.android.gms.ads.AdView>

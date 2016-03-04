@@ -11,6 +11,7 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.media.MediaPlayer;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
@@ -32,24 +33,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 public class Menu extends AppCompatActivity {
 
 
-    public void showAlert(View view) {
-        AlertDialog.Builder creditAlert = new AlertDialog.Builder(this);
-        creditAlert.setMessage("2016 Baxter-Academy Object Orianted Programming Class")
-                .setPositiveButton("Back", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                })
-                .create();
-        creditAlert.show();
-
-
-
-
-
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,17 +40,14 @@ public class Menu extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.menupopup);
 
-
-
-
         Switch switch1 = (Switch)findViewById(R.id.switch1);
         Switch switch2 = (Switch)findViewById(R.id.switch2);
+
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-
         getWindow().setLayout((int) (width * .5), (int) (height * .6));
         if (getSharedPreferences("AdDisplay", Context.MODE_PRIVATE).getBoolean("ads", true)){
             switch1.setChecked(true);}
@@ -77,25 +57,18 @@ public class Menu extends AppCompatActivity {
         }else{switch2.setChecked(false);}
     }
 
-
-
     public void toggle(View view){
-
         Switch switch1 = (Switch)findViewById(R.id.switch1);
-
         SharedPreferences preferences = this.getSharedPreferences("AdDisplay", Context.MODE_PRIVATE);
         if (switch1.isChecked()){
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("ads", true);
-            editor.commit();
-
+            editor.apply();
         }else {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("ads", false);
             editor.commit();
-
         }
-
     }
     public void toggle2(View view){
         Switch switch2 = (Switch)findViewById(R.id.switch2);
@@ -103,11 +76,11 @@ public class Menu extends AppCompatActivity {
         if (switch2.isChecked()){
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("beeps", true);
-            editor.commit();
+            editor.apply();
         }else {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("beeps",false);
-            editor.commit();
+            editor.apply();
         }
     }
 
@@ -115,14 +88,13 @@ public class Menu extends AppCompatActivity {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
-
-
+    public void openWebPage(View view){
+        Intent i = new Intent(Intent.ACTION_VIEW, Uri.parse(getString(R.string.AboutWebpage)));
+        startActivity(i);
+    }
     @Override
     public void onBackPressed() {
         Intent intent = new Intent(this,MainActivity.class);
         startActivity(intent);
     }
-
-
-
 }

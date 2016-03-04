@@ -16,15 +16,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "1037738269911-vsvmjii3sf0v286ftp0899bgf4p5sfnv.apps.googleusercontent.com",
+          "client_id": "506419525750-dnegi5llg3s5fkjok9g5m93ck3mhee6e.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "academy.baxter.throwgame",
+            "package_name": "com.academy.baxter.throwgame",
             "certificate_hash": "6B3ED0B47DCE4DA62D1C9C12BE655D02DBA289BB"
           }
         },
         {
-          "client_id": "1037738269911-vsvmjii3sf0v286ftp0899bgf4p5sfnv.apps.googleusercontent.com",
+          "client_id": "506419525750-nc2jlob4a53t209hfc6v4radjpq1mkib.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

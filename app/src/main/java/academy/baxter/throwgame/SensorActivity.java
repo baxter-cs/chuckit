@@ -12,6 +12,9 @@ import android.os.Bundle;
 import android.view.WindowManager;
 import android.widget.TextView;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+
 public class SensorActivity extends AppCompatActivity implements SensorEventListener{
 
     private SensorManager senSensorManager;
@@ -25,6 +28,11 @@ public class SensorActivity extends AppCompatActivity implements SensorEventList
         if (getSharedPreferences("Sounds", Context.MODE_PRIVATE).getBoolean("beeps",true)){
         MediaPlayer mp = MediaPlayer.create(getApplicationContext(), R.raw.hitmarker);
         mp.start();}
+        if (getSharedPreferences("AdDisplay", Context.MODE_PRIVATE).getBoolean("ads", true)){
+            AdView mAdView = (AdView) findViewById(R.id.adView);
+            AdRequest adRequest = new AdRequest.Builder().build();
+            mAdView.loadAd(adRequest);
+        }
 
         senSensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
         senAccelerometer = senSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);

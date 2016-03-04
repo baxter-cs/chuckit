@@ -18,6 +18,7 @@
         android:textSize="15dp"
         android:id="@+id/switch1"
         android:fontFamily="sans-serif-medium"
+        android:textColor="@color/Textcolor"
         android:enabled="true"
         android:onClick="toggle"
         android:layout_alignParentTop="true"
@@ -29,34 +30,49 @@
         android:text="Sounds"
         android:textSize="15dp"
         android:id="@+id/switch2"
+        android:textColor="@color/Textcolor"
         android:fontFamily="sans-serif-medium"
         android:enabled="true"
         android:onClick="toggle2"
         android:layout_below="@+id/switch1"
-        android:layout_alignRight="@+id/button2"
-        android:layout_alignEnd="@+id/button2" />
+        android:layout_centerHorizontal="true" />
+ <!--   <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AutoSignIn"
+        android:textSize="15dp"
+        android:textColor="@color/Textcolor"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="toggle3"
+        android:enabled="true"
+        android:id="@+id/switch3"
+        android:layout_below="@+id/switch1"
+        android:layout_centerHorizontal="true" />
+!-->
 
-
-    <Button
+   <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Back"
+        android:textColor="@color/Textcolor"
         android:id="@+id/button4"
         android:fontFamily="sans-serif-medium"
         android:onClick="SwitchToMain"
-        android:layout_below="@+id/button2"
-        android:layout_centerHorizontal="true" />
+       android:layout_below="@+id/about"
+       android:layout_alignLeft="@+id/about"
+       android:layout_alignStart="@+id/about" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Credit"
+        android:text="About"
+        android:textColor="@color/Textcolor"
         android:textSize="15dp"
-        android:id="@+id/button2"
+        android:id="@+id/about"
         android:fontFamily="sans-serif-medium"
-        android:onClick="showAlert"
-        android:layout_marginTop="56dp"
+        android:onClick="openWebPage"
         android:layout_below="@+id/switch2"
         android:layout_centerHorizontal="true" />
+
 
 </RelativeLayout>
