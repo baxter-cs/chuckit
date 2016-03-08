@@ -2,14 +2,52 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin">
+    android:background="#00000000"
+    android:screenOrientation="portrait"
+    android:paddingBottom="15dp"
+    android:paddingLeft="10dp"
+    android:paddingRight="10dp"
+    android:paddingTop="15dp">
 
+<ImageView
+    android:layout_width="match_parent"
+    android:src="@drawable/menu"
+    android:layout_height="match_parent" />
 
+   <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Back"
+        android:textColor="@color/Textcolor"
+        android:id="@+id/button4"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="SwitchToMain"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="About"
+        android:textColor="@color/Textcolor"
+        android:textSize="15dp"
+        android:id="@+id/about"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="openWebPage"
+        android:layout_above="@+id/button4"
+        android:layout_centerHorizontal="true"/>
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AutoSignIn"
+        android:textSize="15dp"
+        android:textColor="@color/Textcolor"
+        android:fontFamily="sans-serif-medium"
+        android:onClick="toggle3"
+        android:enabled="true"
+        android:id="@+id/autosignin"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/about"/>
 
     <Switch
         android:layout_width="wrap_content"
@@ -21,8 +59,8 @@
         android:textColor="@color/Textcolor"
         android:enabled="true"
         android:onClick="toggle"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/switch2"/>
 
     <Switch
         android:layout_width="wrap_content"
@@ -34,45 +72,8 @@
         android:fontFamily="sans-serif-medium"
         android:enabled="true"
         android:onClick="toggle2"
-        android:layout_below="@+id/switch1"
-        android:layout_centerHorizontal="true" />
- <!--   <Switch
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="AutoSignIn"
-        android:textSize="15dp"
-        android:textColor="@color/Textcolor"
-        android:fontFamily="sans-serif-medium"
-        android:onClick="toggle3"
-        android:enabled="true"
-        android:id="@+id/switch3"
-        android:layout_below="@+id/switch1"
-        android:layout_centerHorizontal="true" />
-!-->
-
-   <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Back"
-        android:textColor="@color/Textcolor"
-        android:id="@+id/button4"
-        android:fontFamily="sans-serif-medium"
-        android:onClick="SwitchToMain"
-       android:layout_below="@+id/about"
-       android:layout_alignLeft="@+id/about"
-       android:layout_alignStart="@+id/about" />
-
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="About"
-        android:textColor="@color/Textcolor"
-        android:textSize="15dp"
-        android:id="@+id/about"
-        android:fontFamily="sans-serif-medium"
-        android:onClick="openWebPage"
-        android:layout_below="@+id/switch2"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/autosignin"/>
 
 
 </RelativeLayout>

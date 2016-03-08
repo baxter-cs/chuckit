@@ -46,6 +46,12 @@ public class  MainActivity extends AppCompatActivity implements View.OnClickList
             AdRequest adRequest = new AdRequest.Builder().build();
             mAdView.loadAd(adRequest);
         }
+        boolean signin = getSharedPreferences("autoSignIn", Context.MODE_PRIVATE).getBoolean("auto", true);
+        if (signin){
+            mAutoStartSignInFlow = true;
+        }else{
+            mAutoStartSignInFlow = false;
+        }
     }
     @Override
     protected void onStart() {
@@ -166,9 +172,6 @@ public class  MainActivity extends AppCompatActivity implements View.OnClickList
             editor.commit();
         } if(getSharedPreferences("myPrefsKey", Context.MODE_PRIVATE).getInt("HighScore", 0)>5000 && unlocked == 5) {
             Games.Achievements.unlock(mGoogleApiClient, getString(R.string.achievement_its_official_your_hulk));
-            SharedPreferences.Editor editor = preferences.edit();
-            editor.putInt("unlocked", 6);
-            editor.commit();
         }
 
         // player to proceed.

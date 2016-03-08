@@ -6,6 +6,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.Sensor;
 import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
@@ -38,23 +40,30 @@ public class Menu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         setContentView(R.layout.menupopup);
 
         Switch switch1 = (Switch)findViewById(R.id.switch1);
         Switch switch2 = (Switch)findViewById(R.id.switch2);
+        Switch switch3 = (Switch)findViewById(R.id.autosignin);
 
 
         DisplayMetrics dm = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(dm);
         int width = dm.widthPixels;
         int height = dm.heightPixels;
-        getWindow().setLayout((int) (width * .5), (int) (height * .6));
+        getWindow().setLayout((int) (width * .75), (int) (height * .75));
         if (getSharedPreferences("AdDisplay", Context.MODE_PRIVATE).getBoolean("ads", true)){
             switch1.setChecked(true);}
         else{switch1.setChecked(false);}
         if (getSharedPreferences("Sounds", Context.MODE_PRIVATE).getBoolean("beeps",true)){
             switch2.setChecked(true);
         }else{switch2.setChecked(false);}
+        if (getSharedPreferences("autoSignIn", Context.MODE_PRIVATE).getBoolean("auto", true)){
+            switch3.setChecked(true);
+        }else{
+            switch3.setChecked(false);
+        }
     }
 
     public void toggle(View view){
@@ -80,6 +89,19 @@ public class Menu extends AppCompatActivity {
         }else {
             SharedPreferences.Editor editor = preferences.edit();
             editor.putBoolean("beeps",false);
+            editor.apply();
+        }
+    }
+    public void toggle3(View view){
+        Switch switch3 = (Switch)findViewById(R.id.autosignin);
+        SharedPreferences preferences = this.getSharedPreferences("autoSignIn", Context.MODE_PRIVATE);
+        if (switch3.isChecked()){
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("auto", true);
+            editor.apply();
+        }else {
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("auto", false);
             editor.apply();
         }
     }
